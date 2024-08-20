@@ -9,7 +9,7 @@ def hash_file(file_path):
         hasher.update(buf)
     return hasher.hexdigest()
 
-def find_duplicates(directory):
+def find_duplicates_keep_one(directory):
     """Find and remove duplicate files in a directory."""
     file_hashes = {}
     for root, _, files in os.walk(directory):
@@ -21,7 +21,3 @@ def find_duplicates(directory):
                 os.remove(file_path)
             else:
                 file_hashes[file_hash] = file_path
-
-# Example usage
-directory = r'C:\Users\SUD\Downloads\Images\Data'
-find_duplicates(directory)
